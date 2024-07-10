@@ -12,7 +12,8 @@ The dataset is available in all_QA.xlsx. Each category contains files with quest
 
 ## LLM Benchmarks
 
-We have benchmarked several open-source and commercial LLMs on this dataset. The evaluation process is automated.
+We have benchmarked several open-source and commercial LLMs on this dataset.
+![We have benchmarked several open-source and commercial LLMs on this dataset.](LLM_comp.jpeg)
 
 ## Web App: MaSTeA (Materials Science Teaching Assistant)
 
@@ -23,7 +24,3 @@ The web app is built using [streamlit](https://streamlit.io/) and is available a
 ## Future Work
 
 Additionally, we plan to make the models more reliable to enable their use as a tool for students to practice answering questions and learn about the steps to reach the correct answer when stuck. We aim to enhance the performance of LLMs on materials science question answering by integrating retrieval-augmented generation. This approach would provide relevant scientific context from research articles or textbooks to the language model, potentially improving the quality of generated answers.
-
-## Acknowledgments
-
-We would like to thank the organizers of the LLMs for Materials and Chemistry Hackathon for providing this opportunity to work on this project.
