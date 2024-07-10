@@ -58,22 +58,22 @@ question_selected = col2.selectbox(
 
 col2.caption('MCQS - Multiple choice questions, MCQS-NUMS - Numerical MCQS, MATCH - Matching questions, NUM - Numerical questions')
 
-if question_selected == "Enter your own question":
-    question_num = 0
+# if question_selected == "Enter your own question":
+#    question_num = 0
 
 # Read input
-if question_selected == "Enter your own question":
-    # 
-    system_prompt = "Solve the following question with highly detailed step by step explanation. Write the correct answer inside a dictionary at the end in the following format. The key 'answer' has a list which can be filled by all correct options or by a number as required while answering the question. For example for question with correct answer as option (a), return {'answer':[a]} at the end of solution. For question with multiple options'a,c' as answers, return {'answer':[a,c]}. And for question with numerical values as answer (say 1.33), return {'answer':[1.33]}"
+# if question_selected == "Enter your own question":
 
-    # Select token length
-    token_length = col1.select_slider(
-    "Token length",
-    options=[256, 512, 1024, 2048],
-    value=256,  # Default value
-    )
+system_prompt = "Solve the following question with highly detailed step by step explanation. Write the correct answer inside a dictionary at the end in the following format. The key 'answer' has a list which can be filled by all correct options or by a number as required while answering the question. For example for question with correct answer as option (a), return {'answer':[a]} at the end of solution. For question with multiple options'a,c' as answers, return {'answer':[a,c]}. And for question with numerical values as answer (say 1.33), return {'answer':[1.33]}"
 
-    model_option = col1.selectbox("Select a model", 
+# Select token length
+token_length = col1.select_slider(
+"Token length",
+options=[256, 512, 1024, 2048],
+value=256,  # Default value
+)
+
+model_option = col1.selectbox("Select a model", 
                                   (
                                    "claude-3-haiku-20240307", 
                                    "claude-3-sonnet-20240229", 
@@ -85,20 +85,20 @@ if question_selected == "Enter your own question":
                                   index=0,
                                   placeholder="Select model")
     
-    option = col2.radio("Input method",
+option = col2.radio("Input method",
                         ("Upload text file", "Enter text"),
                         index=1,
                         help="Choose whether to upload a text file containing your question or to enter the text manually.")
     
-    text_input_container = col2.empty()
-    api = text_input_container.text_input("Enter api key")
+text_input_container = col2.empty()
+api = text_input_container.text_input("Enter api key")
 
-    if api != "":
+if api != "":
         text_input_container.empty()
         api_hide = "\*"*len(api)
         col2.info(api_hide)
     
-    if option == "Upload text file":
+if option == "Upload text file":
         uploaded_file = col1.file_uploader("Add text file containing question", type=["txt"])
         if uploaded_file:
             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -107,13 +107,13 @@ if question_selected == "Enter your own question":
             question = string_data
         else:
             col1.warning("No file uploaded!")
-    elif option == "Enter text":
+elif option == "Enter text":
         question = col2.text_area("Enter your question here:")
 
-    if not api:
+if not api:
         col2.warning("This model requires API key")
 
-    elif len(question) != 0:
+elif len(question) != 0:
         client = anthropic.Anthropic(api_key = api)
         message = client.messages.create(
                 model=model_option,
