@@ -18,7 +18,7 @@ We have benchmarked several open-source and commercial LLMs on this dataset. The
 
 We have developed an interactive web application called MaSTeA (Materials Science Teaching Assistant) for MaScQA (Materials Science Question Answering). This app allows users to test different LLMs on the dataset and identify their strengths and weaknesses in various materials science subfields.
 
-The web app is built using [streamlit](https://streamlit.io/) and is available at [MaSTeA for MaScQA](https://mastea-nhwpzz8fehvc9b3n5bhzya.streamlit.app/).
+The web app is built using [streamlit](https://streamlit.io/) and is available at [MaSTeA for MaScQA](https://masteaclaude-4ixvbyes7dma7vu8jakm8h.streamlit.app/).
 
 ## Future Work
 
